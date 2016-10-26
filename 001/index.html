@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    <a id="myLink" href="#" name="myname">連結</a>
+    <span id="mySpan" name="myname">文字</span>
+    <br/>
+    <input type="button" name="myname" value="按我" onclick="getText()">
+    <input type="button" name="myname" value="選我" onclick="getName()">
+    <input type="button" name="name" value="prop" onclick="getProp()">
+  </p>
+  <div id="show"></div>
+  <script type="text/javascript">
+  function getText()
+  {
+    var myLink = document.getElementById("myLink");
+    var mySpan = document.getElementById("mySpan");
+    alert(myLink.innerHTML + mySpan.innerHTML);
+  }
+
+    function getName()
+    {
+        var doms = document.getElementsByName("myname");
+        var str="";
+
+        for(var i=0;i<doms.length;i++)
+        {
+            str +=doms[i].innerHTML;
+            str +=","
+        }
+        alert(str);
+    }
+    function getProp()
+    {
+      var myLink = document.getElementById("myLink");
+      var str="";
+      for(var prop in myLink)
+      {
+        str += prop + ":" + myLink[prop] + "<br />";
+      }
+      document.getElementById("show").innerHTML=str;
+    }
+
+  </script>
+</body>
+</html>
